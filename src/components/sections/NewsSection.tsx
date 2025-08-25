@@ -192,7 +192,7 @@ export function PortfolioAndNewsSection() {
      </h2>
      <div ref={tabsRef} className="mt-8">
       <Tabs defaultValue="siraj">
-       <TabsList className="h-auto rounded-full bg-[#1C1A1F] p-1.5 border border-[#5E00B5]">
+       <TabsList className="h-auto rounded-full bg-[#1C1A1F] text-white p-1.5 border border-[#5E00B5]">
         {portfolioCompanies.map((company) => (
          <TabsTrigger
           key={company.id}

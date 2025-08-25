@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/form";
 import { PhoneInput, getPhoneData } from "../phone-input";
 import { toast } from "sonner";
+import Image from "next/image";
 
 // Define Zod validation schema
 const formSchema = z.object({
@@ -74,6 +75,13 @@ export function ContactFormSection() {
  return (
   <div className="relative bg-black z-10 py-20">
    <div className="grid lg:grid-cols-2 gap-16 items-start max-w-7xl mx-auto">
+    <Image
+     src={"/contact-from-image.jpg"}
+     alt="contact bg-image"
+     fill
+     className="w-[1440px] h-[800px] object-cover hidden lg:block -z-20  backdrop-blur-[2px] "
+    />
+    <div className="bg-[#000000D9] absolute inset-0 -z-10"></div>
     <div className="space-y-6">
      <h1 className="font-heading text-2xl md:text-3xl lg:text-4xl font-ralway font-medium text-white">
       Lets Talk!
