@@ -85,7 +85,7 @@ export function RealTimeDataAnalyticsDashboardSection() {
  return (
   <section
    ref={sectionRef}
-   className="bg-black relative overflow-hidden min-h-screen flex items-center py-20 md:py-40"
+   className="bg-black relative overflow-hidden min-h-screen flex items-center py-20 md:py-52"
   >
    <div className="max-w-7xl mx-auto px-4 relative z-10 w-full">
     <div className="flex flex-col md:flex-row items-center gap-12">
@@ -96,7 +96,7 @@ export function RealTimeDataAnalyticsDashboardSection() {
        className="relative h-[565px] w-[1110px] ml-[-550px] rounded-lg overflow-hidden border-2 border-white/10 
                          shadow-[0_0_400px_50px_rgba(168,85,247,0.3)] 
                          shadow-[#ED05CA21]
-                         backdrop-blur-xl
+                         backdrop-blur-2xl
                          filter saturate-150"
       >
        <Image
@@ -133,7 +133,10 @@ export function RealTimeDataAnalyticsDashboardSection() {
        </p>
       </div>
 
-      <Button className="bg-gradient-to-r from-white to-purple-200 text-slate-900 hover:from-slate-100 hover:to-purple-100 px-8 py-6 text-lg font-semibold rounded-full transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-purple-500/30">
+      <Button
+       size={"lg"}
+       className=" font-bold transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-purple-500/30"
+      >
        Request a demo
       </Button>
      </div>

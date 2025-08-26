@@ -98,7 +98,7 @@ export function PortfolioAndNewsSection() {
    // Animate tabs with reverse capability
    gsap.fromTo(
     tabsRef.current,
-    { opacity: 0, y: 10 },
+    { opacity: 0, y: 20 },
     {
      opacity: 1,
      y: 0,
@@ -217,7 +217,7 @@ export function PortfolioAndNewsSection() {
     end: "bottom top",
     onUpdate: (self) => {
      gsap.to(tabTriggersRef.current, {
-      y: self.progress * -10, // Subtle float effect
+      // y: self.progress * -10, // Subtle float effect
       duration: 0.5,
       stagger: 0.05,
      });
@@ -231,13 +231,6 @@ export function PortfolioAndNewsSection() {
    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
   };
  }, []);
-
- // Function to add tab triggers to ref array
- const addToTabTriggersRef = (el: HTMLElement | null) => {
-  if (el && !tabTriggersRef.current.includes(el)) {
-   tabTriggersRef.current.push(el);
-  }
- };
 
  return (
   <div
@@ -254,17 +247,18 @@ export function PortfolioAndNewsSection() {
      </h2>
      <div ref={tabsRef} className="mt-8">
       <Tabs defaultValue="siraj">
-       <TabsList className="h-auto rounded-full bg-[#1C1A1F] text-white p-1.5 border border-[#5E00B5]">
-        {portfolioCompanies.map((company) => (
-         <TabsTrigger
-          key={company.id}
-          value={company.id}
-          ref={addToTabTriggersRef}
-          className="rounded-full px-5 py-2 text-sm text-white font-bold data-[state=active]:bg-white data-[state=active]:text-black data-[state=active]:shadow-sm transition-all duration-300 transform hover:scale-105"
-         >
-          {company.name}
-         </TabsTrigger>
-        ))}
+       <TabsList className="h-auto gap-2 rounded-full bg-gradient-to-r from-[#5e00b58f] to-[#ff06cd9d] text-white p-[2px]">
+        <div className="rounded-full bg-[#1C1A1F] p-1.5">
+         {portfolioCompanies.map((company) => (
+          <TabsTrigger
+           key={company.id}
+           value={company.id}
+           className="rounded-full px-5 py-2 text-sm text-white font-bold data-[state=active]:bg-white data-[state=active]:text-black data-[state=active]:shadow-sm transition-all duration-300 transform hover:scale-105"
+          >
+           {company.name}
+          </TabsTrigger>
+         ))}
+        </div>
        </TabsList>
       </Tabs>
      </div>

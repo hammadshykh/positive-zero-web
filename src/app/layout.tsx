@@ -72,7 +72,7 @@ export default function RootLayout({
           ${raleway.variable} 
           font-sans antialiased
           ${montserrat.className}
-          bg-background
+          bg-black
         `}
    >
     <ThemeProvider
