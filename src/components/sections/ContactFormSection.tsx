@@ -73,7 +73,7 @@ export function ContactFormSection() {
  }
 
  return (
-  <div className="relative bg-black z-10 py-20">
+  <div className="relative bg-black z-10 py-20 md:pb-40">
    <div className="grid lg:grid-cols-2 gap-16 items-start max-w-7xl mx-auto">
     <Image
      src={"/contact-from-image.jpg"}
@@ -86,7 +86,7 @@ export function ContactFormSection() {
      <h1 className="font-heading text-2xl md:text-3xl lg:text-4xl font-ralway font-medium text-white">
       Lets Talk!
      </h1>
-     <p className="text-gray-400 text-lg leading-relaxed max-w-xs">
+     <p className="text-[#C7C7C7] text-lg leading-relaxed max-w-xs">
       Our friendly team would love to consult you for free.
      </p>
     </div>
@@ -100,7 +100,7 @@ export function ContactFormSection() {
         name="firstName"
         render={({ field }) => (
          <FormItem className="space-y-2">
-          <FormLabel className="text-gray-400 text-sm">First name</FormLabel>
+          <FormLabel className="text-[#C7C7C7] text-sm">First name</FormLabel>
           <FormControl>
            <Input placeholder="First name" {...field} />
           </FormControl>
@@ -115,7 +115,7 @@ export function ContactFormSection() {
         name="lastName"
         render={({ field }) => (
          <FormItem className="space-y-2">
-          <FormLabel className="text-gray-400 text-sm">Last name</FormLabel>
+          <FormLabel className="text-[#C7C7C7] text-sm">Last name</FormLabel>
           <FormControl>
            <Input placeholder="Last name" {...field} />
           </FormControl>
@@ -131,7 +131,7 @@ export function ContactFormSection() {
        name="email"
        render={({ field }) => (
         <FormItem className="space-y-2">
-         <FormLabel className="text-gray-400 text-sm">Email</FormLabel>
+         <FormLabel className="text-[#C7C7C7] text-sm">Email</FormLabel>
          <FormControl>
           <Input type="email" placeholder="you@company.com" {...field} />
          </FormControl>
@@ -161,7 +161,7 @@ export function ContactFormSection() {
        name="message"
        render={({ field }) => (
         <FormItem className="space-y-2">
-         <FormLabel className="text-gray-400 text-sm">Message</FormLabel>
+         <FormLabel className="text-[#C7C7C7] text-sm">Message</FormLabel>
          <FormControl>
           <Textarea rows={6} placeholder="Your message..." {...field} />
          </FormControl>
@@ -184,7 +184,7 @@ export function ContactFormSection() {
           />
          </FormControl>
          <div className="space-y-1 leading-none">
-          <FormLabel className="text-gray-400 text-sm leading-relaxed cursor-pointer">
+          <FormLabel className="text-[#C7C7C7] text-sm leading-relaxed cursor-pointer">
            You agree to our friendly privacy policy.
           </FormLabel>
           <FormMessage className="text-xs text-red-400" />

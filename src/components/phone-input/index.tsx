@@ -158,7 +158,7 @@ export function PhoneInput({
       variant="outline"
       role="combobox"
       aria-expanded={openCommand}
-      className="w-max items-center h-[44px] !rounded-md justify-between whitespace-nowrap"
+      className="w-max items-center h-[44px] !rounded-r-0 rounded-md justify-between whitespace-nowrap"
      >
       {selectedCountry?.name ? (
        <span className="relative top-0.5">{selectedCountry.emoji}</span>

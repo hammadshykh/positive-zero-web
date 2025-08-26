@@ -5,16 +5,16 @@ import Image from "next/image";
 
 export function PositiveZeroFooter() {
  return (
-  <footer className="bg-background text-white py-16 px-6">
+  <footer className="bg-background text-white py-14 px-6">
    <div className="max-w-7xl mx-auto">
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-12">
      <div className="lg:col-span-4">
       <div className="flex items-center gap-2 mb-4">
-       <div className="relative -ms-2">
+       <div className="relative -ms-2 -mt-2">
         <Image src="/positive-zero.svg" alt="Logo" width={120} height={120} />
        </div>
       </div>
-      <p className="text-[#B9B3B3] mb-6 leading-relaxed">
+      <p className="text-[#B9B3B3] mb-6 text-sm leading-relaxed">
        Get started on your decarbonization journey with Positive Zero.
       </p>
       <div className="flex gap-3">
@@ -50,12 +50,12 @@ export function PositiveZeroFooter() {
      </div>
      <div className="lg:col-span-4 grid grid-cols-2 gap-8">
       <div>
-       <h3 className="font-semibold text-white mb-4">Company</h3>
+       <h3 className="font-semibold text-white mb-4  md:text-xl">Company</h3>
        <ul className="space-y-3">
         <li>
          <a
           href="#"
-          className="text-[#B9B3B3] hover:text-white transition-colors"
+          className="text-[#B9B3B3] text-sm hover:text-white transition-colors"
          >
           Service
          </a>
@@ -63,7 +63,7 @@ export function PositiveZeroFooter() {
         <li>
          <a
           href="#"
-          className="text-[#B9B3B3] hover:text-white transition-colors"
+          className="text-[#B9B3B3] text-sm hover:text-white transition-colors"
          >
           Resources
          </a>
@@ -71,7 +71,7 @@ export function PositiveZeroFooter() {
         <li>
          <a
           href="#"
-          className="text-[#B9B3B3] hover:text-white transition-colors"
+          className="text-[#B9B3B3] text-sm hover:text-white transition-colors"
          >
           About us
          </a>
@@ -79,12 +79,12 @@ export function PositiveZeroFooter() {
        </ul>
       </div>
       <div>
-       <h3 className="font-semibold text-white mb-4">Help</h3>
+       <h3 className="font-semibold text-white mb-4  md:text-xl">Help</h3>
        <ul className="space-y-3">
         <li>
          <a
           href="#"
-          className="text-[#B9B3B3] hover:text-white transition-colors"
+          className="text-[#B9B3B3] text-sm hover:text-white transition-colors"
          >
           Customer Support
          </a>
@@ -92,7 +92,7 @@ export function PositiveZeroFooter() {
         <li>
          <a
           href="#"
-          className="text-[#B9B3B3] hover:text-white transition-colors"
+          className="text-[#B9B3B3] text-sm hover:text-white transition-colors"
          >
           Terms & Conditions
          </a>
@@ -100,7 +100,7 @@ export function PositiveZeroFooter() {
         <li>
          <a
           href="#"
-          className="text-[#B9B3B3] hover:text-white transition-colors"
+          className="text-[#B9B3B3] text-sm hover:text-white transition-colors"
          >
           Privacy Policy
          </a>
@@ -109,7 +109,9 @@ export function PositiveZeroFooter() {
       </div>
      </div>
      <div className="lg:col-span-4">
-      <h3 className="font-semibold text-white mb-4">Subscribe to Newsletter</h3>
+      <h3 className="font-semibold md:text-xl text-white mb-4">
+       Subscribe to Newsletter
+      </h3>
       <div className="flex h-20">
        <Input
         type="email"

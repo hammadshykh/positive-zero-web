@@ -13,7 +13,7 @@ export function InfiniteSliderBasic() {
     <InfiniteSlider
      gap={100}
      reverse
-     className="bg-black mt-10 w-full flex items-center justify-start"
+     className="bg-black mt-5 w-full flex items-center justify-start"
     >
      <Image
       width={100}

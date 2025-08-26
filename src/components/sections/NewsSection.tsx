@@ -39,7 +39,6 @@ const newsItems = [
   title:
    "Al Jalila Foundation and Positive Zero Inaugurate Rooftop and Carport Solar Project",
   image: "/news/news-4.png",
-
   alt: "News article about Al Jalila Foundation and Positive Zero",
  },
  {
@@ -47,7 +46,6 @@ const newsItems = [
   title:
    "Positive Zero and Tamimi Energy Join Forces to Support Rapid Growth of Saudi Clean Energy Market",
   image: "/news/new-3.png",
-
   alt: "News article about Positive Zero and Tamimi Energy",
  },
 ];
@@ -58,11 +56,12 @@ export function PortfolioAndNewsSection() {
  const tabsRef = useRef(null);
  const newsHeadingRef = useRef(null);
  const newsGridRef = useRef(null);
+ const tabTriggersRef = useRef<HTMLElement[]>([]);
 
  useEffect(() => {
   // Set up animations only on client side
   const ctx = gsap.context(() => {
-   // Animate section entrance
+   // Animate section entrance with reverse capability
    gsap.fromTo(
     sectionRef.current,
     { opacity: 0, y: 50 },
@@ -73,12 +72,12 @@ export function PortfolioAndNewsSection() {
      scrollTrigger: {
       trigger: sectionRef.current,
       start: "top 80%",
-      toggleActions: "play none none none",
+      toggleActions: "play reverse play reverse", // Reverse on scroll back
      },
     }
    );
 
-   // Animate headings
+   // Animate headings with reverse capability
    gsap.fromTo(
     [headingRef.current, newsHeadingRef.current],
     { opacity: 0, y: 30 },
@@ -90,65 +89,100 @@ export function PortfolioAndNewsSection() {
      scrollTrigger: {
       trigger: headingRef.current,
       start: "top 85%",
+      end: "bottom 5%",
       toggleActions: "play none none none",
      },
     }
    );
 
-   // Animate tabs
+   // Animate tabs with reverse capability
    gsap.fromTo(
     tabsRef.current,
-    { opacity: 0, y: 20 },
+    { opacity: 0, y: 10 },
     {
      opacity: 1,
      y: 0,
-     duration: 0.7,
+     duration: 0.5,
      delay: 0.3,
      scrollTrigger: {
       trigger: tabsRef.current,
       start: "top 85%",
-      toggleActions: "play none none none",
+      toggleActions: "play reverse play reverse", // Reverse on scroll back
      },
     }
    );
 
-   // Animate news cards with stagger effect
+   // Animate tab triggers with staggered effect
+   gsap.fromTo(
+    tabTriggersRef.current,
+    {
+     opacity: 0,
+     scale: 0.8,
+     y: 20,
+    },
+    {
+     opacity: 1,
+     scale: 1,
+     y: 0,
+     duration: 0.6,
+     stagger: 0.1,
+     ease: "back.out(1.7)",
+     scrollTrigger: {
+      trigger: tabsRef.current,
+      start: "top 85%",
+      toggleActions: "play reverse play reverse", // Reverse on scroll back
+     },
+    }
+   );
+
+   // Enhanced news cards animation with 3D-like effect
    gsap.fromTo(
     ".news-card",
     {
      opacity: 0,
-     y: 40,
-     scale: 0.95,
+     y: 60,
+     rotationX: -15, // 3D rotation effect
+     scale: 0.9,
     },
     {
      opacity: 1,
      y: 0,
+     rotationX: 0,
      scale: 1,
-     duration: 0.6,
+     duration: 0.8,
      stagger: 0.15,
+     ease: "power2.out",
      scrollTrigger: {
       trigger: newsGridRef.current,
       start: "top 80%",
-      toggleActions: "play none none none",
+      toggleActions: "play reverse play reverse", // Reverse on scroll back
      },
     }
    );
 
-   // Enhanced hover animations for news cards
+   // Enhanced hover animations for news cards with parallax effect
    const newsCards = document.querySelectorAll(".news-card");
    newsCards.forEach((card) => {
     const image = card.querySelector("img");
+    const text = card.querySelector("p");
 
-    // Scale animation on hover
+    // Scale animation on hover with parallax effect
     card.addEventListener("mouseenter", () => {
      gsap.to(image, {
-      scale: 1.08,
-      duration: 0.5,
+      scale: 1.1,
+      duration: 0.6,
       ease: "power2.out",
      });
 
      gsap.to(card, {
-      y: -8,
+      y: -12,
+      duration: 0.5,
+      ease: "power2.out",
+     });
+
+     gsap.to(text, {
+      y: -5,
+      color: "#ffffff",
       duration: 0.4,
       ease: "power2.out",
      });
@@ -157,16 +191,37 @@ export function PortfolioAndNewsSection() {
     card.addEventListener("mouseleave", () => {
      gsap.to(image, {
       scale: 1,
-      duration: 0.5,
+      duration: 0.6,
       ease: "power2.out",
      });
 
      gsap.to(card, {
       y: 0,
+      duration: 0.5,
+      ease: "power2.out",
+     });
+
+     gsap.to(text, {
+      y: 0,
+      color: "#d4d4d8",
       duration: 0.4,
       ease: "power2.out",
      });
     });
+   });
+
+   // Add subtle continuous animation to tabs on scroll
+   ScrollTrigger.create({
+    trigger: sectionRef.current,
+    start: "top bottom",
+    end: "bottom top",
+    onUpdate: (self) => {
+     gsap.to(tabTriggersRef.current, {
+      y: self.progress * -10, // Subtle float effect
+      duration: 0.5,
+      stagger: 0.05,
+     });
+    },
    });
   }, sectionRef);
 
@@ -177,6 +232,13 @@ export function PortfolioAndNewsSection() {
   };
  }, []);
 
+ // Function to add tab triggers to ref array
+ const addToTabTriggersRef = (el: HTMLElement | null) => {
+  if (el && !tabTriggersRef.current.includes(el)) {
+   tabTriggersRef.current.push(el);
+  }
+ };
+
  return (
   <div
    ref={sectionRef}
@@ -186,7 +248,7 @@ export function PortfolioAndNewsSection() {
     <section className="flex flex-col items-center text-center">
      <h2
       ref={headingRef}
-      className="text-3xl font-heading md:text-4xl font-medium tracking-tight"
+      className="text-3xl font-heading md:text-4xl font-medium tracking-tight text-white"
      >
       Our Portfolio Companies
      </h2>
@@ -197,7 +259,8 @@ export function PortfolioAndNewsSection() {
          <TabsTrigger
           key={company.id}
           value={company.id}
-          className="rounded-full px-5 py-2 text-sm  text-white font-bold data-[state=active]:bg-white data-[state=active]:text-black data-[state=active]:shadow-sm transition-all duration-300"
+          ref={addToTabTriggersRef}
+          className="rounded-full px-5 py-2 text-sm text-white font-bold data-[state=active]:bg-white data-[state=active]:text-black data-[state=active]:shadow-sm transition-all duration-300 transform hover:scale-105"
          >
           {company.name}
          </TabsTrigger>
@@ -210,7 +273,7 @@ export function PortfolioAndNewsSection() {
     <section className="md:mt-60 mt-20">
      <h2
       ref={newsHeadingRef}
-      className="text-3xl font-heading -tracking-tight md:text-4xl mb-10"
+      className="text-3xl font-raleway font-heading tracking-[0.5] md:text-4xl mb-10 text-white"
      >
       We Are In The News
      </h2>
@@ -220,14 +283,14 @@ export function PortfolioAndNewsSection() {
      >
       {newsItems.map((item) => (
        <div key={item.id} className="news-card group cursor-pointer">
-        <div className="overflow-hidden rounded  bg-gradient-to-br from-gray-900 to-black">
+        <div className="overflow-hidden rounded-lg bg-gradient-to-br from-gray-900 to-black shadow-lg shadow-purple-500/10">
          <img
           src={item.image}
           alt={item.alt}
           className="h-auto w-full object-cover aspect-[3/3] transition-transform duration-500 ease-out"
          />
         </div>
-        <p className="mt-4 text-base text-zinc-300 leading-relaxed transition-colors duration-300 group-hover:text-white">
+        <p className="mt-4 text-base text-zinc-300 leading-relaxed transition-all duration-300 group-hover:text-white">
          {item.title}
         </p>
        </div>

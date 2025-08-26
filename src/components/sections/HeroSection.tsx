@@ -95,7 +95,7 @@ export default function HeroSection() {
        </p>
       </div>
       <div className="hidden md:block h-14">
-       <Separator orientation="vertical" />
+       <Separator orientation="vertical" className="bg-white" />
       </div>
 
       {/* Card 2 */}
@@ -108,7 +108,7 @@ export default function HeroSection() {
        </p>
       </div>
       <div className="hidden md:block h-14">
-       <Separator orientation="vertical" />
+       <Separator orientation="vertical" className="bg-white" />
       </div>
 
       {/* Card 3 */}
