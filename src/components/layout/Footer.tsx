@@ -118,7 +118,7 @@ export function PositiveZeroFooter() {
         placeholder="Enter email address"
         className=" border-0 text-white rounded-r-none  focus:border-purple-500 flex-1"
        />
-       <Button className="bg-purple-600 hover:bg-purple-700 text-white px-10 rounded-e-md rounded-s-none h-[44px]">
+       <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-medium px-10 rounded-e-md rounded-s-none h-[44px]">
         Join
        </Button>
       </div>
