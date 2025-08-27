@@ -5,8 +5,8 @@ export function InfiniteSliderBasic() {
  return (
   <div className=" bg-black pb-6 md:py-10 mb-10 md:mb-0">
    <div className=" flex max-w-7xl mx-auto md:px-0 px-4  flex-col items-start">
-    <div className="md:w-[550px] py-4 ">
-     <h2 className="text-primary uppercase leading-tight tracking-tighter">
+    <div className="md:w-[550px] py-4 px-2 md:px-0">
+     <h2 className="text-primary uppercase md:text-base text-sm leading-tight tracking-tighter">
       our Supporters
      </h2>
     </div>
