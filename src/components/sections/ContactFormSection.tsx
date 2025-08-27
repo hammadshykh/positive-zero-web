@@ -86,7 +86,7 @@ export function ContactFormSection() {
      <h1 className="font-heading text-2xl md:text-3xl lg:text-4xl font-ralway font-medium text-white">
       Lets Talk!
      </h1>
-     <p className="text-[#C7C7C7] text-lg leading-relaxed max-w-xs">
+     <p className="text-[#C7C7C7] md:text-lg leading-relaxed max-w-xs">
       Our friendly team would love to consult you for free.
      </p>
     </div>

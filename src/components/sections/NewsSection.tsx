@@ -241,7 +241,7 @@ export function PortfolioAndNewsSection() {
     <section className="flex flex-col items-center text-center">
      <h2
       ref={headingRef}
-      className="md:text-3xl text-2xl font-heading lg:text-4xl font-medium tracking-tight text-white"
+      className="md:text-3xl text-2xl font-semibold lg:text-4xl  tracking-tight text-white"
      >
       Our Portfolio Companies
      </h2>

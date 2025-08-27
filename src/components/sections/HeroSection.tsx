@@ -94,7 +94,7 @@ export default function HeroSection() {
         Installed portfolio of distributed solar
        </p>
       </div>
-      <div className="hidden md:block h-14">
+      <div className=" h-14">
        <Separator orientation="vertical" className="bg-white" />
       </div>
 
@@ -107,7 +107,7 @@ export default function HeroSection() {
         Energy <br /> saved
        </p>
       </div>
-      <div className="hidden md:block h-14">
+      <div className=" h-14">
        <Separator orientation="vertical" className="bg-white" />
       </div>
 
