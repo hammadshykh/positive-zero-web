@@ -178,14 +178,25 @@ const Header = () => {
 
      {/* Mobile: open sidebar button */}
      <div className="md:hidden flex items-center gap-3">
-      <button
-       className="text-white p-2 hover:bg-white/10 rounded-lg transition-colors duration-200"
-       aria-label="Toggle mobile menu"
-       aria-expanded={isOpen}
-       onClick={() => setIsOpen(true)}
-      >
-       <Menu className="w-6 h-6 text-white" />
-      </button>
+      {isOpen ? (
+       <button
+        className="text-white p-2 hover:bg-white/10 rounded-lg transition-colors duration-200"
+        aria-label="Toggle mobile menu"
+        aria-expanded={isOpen}
+        onClick={() => setIsOpen(false)}
+       >
+        <X className="w-6 h-6 text-white" />
+       </button>
+      ) : (
+       <button
+        className="text-white p-2 hover:bg-white/10 rounded-lg transition-colors duration-200"
+        aria-label="Toggle mobile menu"
+        aria-expanded={isOpen}
+        onClick={() => setIsOpen(true)}
+       >
+        <Menu className="w-6 h-6 text-white" />
+       </button>
+      )}
      </div>
     </div>
    </header>
@@ -244,9 +255,9 @@ const Header = () => {
    {/* Mobile Sidebar Overlay + Panel (fade+scale) */}
    <div
     ref={overlayRef}
-    className={`fixed inset-0 w-full h-full z-[70] md:hidden ${
+    className={`fixed inset-0 w-full h-full z-[30] md:hidden ${
      isOpen
-      ? "pointer-events-auto opacity-100"
+      ? "pointer-events-none opacity-100"
       : "pointer-events-none opacity-0"
     }`}
     onClick={() => setIsOpen(false)}
@@ -261,19 +272,7 @@ const Header = () => {
     >
      <div className="w-full mx-4 rounded-2xl p-6">
       <div className="flex items-center justify-between gap-3">
-       <div>
-        <Image src="/positive-zero.svg" alt="Logo" width={120} height={120} />
-       </div>
-       <div className="absolute top-15 right-5">
-        <button
-         className="text-white p-2 hover:bg-white/10 rounded-lg transition-colors duration-200"
-         aria-label="Toggle mobile menu"
-         aria-expanded={isOpen}
-         onClick={() => setIsOpen(false)}
-        >
-         <X className="w-6 h-6 text-white" />
-        </button>
-       </div>
+       <div className="absolute top-15 right-5"></div>
       </div>
       <nav ref={menuRef} className="flex flex-col items-center gap-5 py-2">
        {navLinks.map((link) => (

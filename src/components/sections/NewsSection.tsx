@@ -245,10 +245,10 @@ export function PortfolioAndNewsSection() {
      >
       Our Portfolio Companies
      </h2>
-     <div ref={tabsRef} className="mt-8  max-w-max ">
+     <div ref={tabsRef} className="mt-8 md:max-w-full  max-w-max ">
       <Tabs defaultValue="siraj">
        <TabsList className="h-auto gap-2 rounded-full bg-gradient-to-r from-[#5e00b58f] to-[#ff06cd9d] text-white p-[2px]">
-        <div className="rounded-full bg-[#1C1A1F] p-1.5 max-w-xs overflow-x-auto md:overflow-visible flex snap-x snap-mandatory scrollbar-hide">
+        <div className="rounded-full bg-[#1C1A1F] p-1.5 max-w-xs md:max-w-full overflow-x-auto md:overflow-visible flex snap-x snap-mandatory scrollbar-hide">
          {portfolioCompanies.map((company) => (
           <TabsTrigger
            key={company.id}
