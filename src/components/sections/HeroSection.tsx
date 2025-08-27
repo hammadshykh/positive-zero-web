@@ -62,7 +62,7 @@ export default function HeroSection() {
  return (
   <section
    ref={heroRef}
-   className="relative h-[80vh] md:min-h-screen bg-cover bg-center bg-no-repeat pt-4 hero-bg flex flex-col justify-between"
+   className="relative min-h-[80vh] md:min-h-screen bg-cover bg-center bg-no-repeat pt-4 hero-bg flex flex-col justify-between"
    style={{
     backgroundImage: `linear-gradient(rgba(82, 0, 66, .2), rgba(0,0,0,1)), url('/positive-zero-hero-image.jpg')`,
     // backgroundAttachment: "fixed", // ✅ Parallax effect
@@ -72,7 +72,7 @@ export default function HeroSection() {
    <Header />
 
    {/* Hero Content */}
-   <div className="relative z-10 pb-20">
+   <div className="relative z-10 pb-10 md:pb-20">
     <div className="max-w-7xl mx-auto md:px-0 px-4">
      <div className="flex flex-col">
       {/* Main Headline */}
