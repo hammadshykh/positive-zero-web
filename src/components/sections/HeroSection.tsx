@@ -62,7 +62,7 @@ export default function HeroSection() {
  return (
   <section
    ref={heroRef}
-   className="relative md:min-h-screen bg-cover bg-center bg-no-repeat pt-4 hero-bg flex flex-col justify-between"
+   className="relative h-[80vh] md:min-h-screen bg-cover bg-center bg-no-repeat pt-4 hero-bg flex flex-col justify-between"
    style={{
     backgroundImage: `linear-gradient(rgba(82, 0, 66, .2), rgba(0,0,0,1)), url('/positive-zero-hero-image.jpg')`,
     // backgroundAttachment: "fixed", // ✅ Parallax effect
@@ -84,10 +84,10 @@ export default function HeroSection() {
      </div>
 
      {/* Bottom Cards */}
-     <div className="max-w-7xl mx-auto mt-4 bg-[#FFFFFF0D] backdrop-blur-xs p-6 rounded-3xl flex items-center md:justify-between justify-start md:px-40 space-x-20">
+     <div className="max-w-7xl mx-auto mt-4 bg-[#FFFFFF0D] backdrop-blur-xs py-4 px-8 md:p-6 rounded-3xl flex overflow-auto items-center md:justify-between justify-start md:px-40 space-x-8 md:space-x-20">
       {/* Card 1 */}
       <div className="bg-opacity-70  snap-center shrink-0 flex flex-col justify-center text-center max-w-40">
-       <h3 className="text-white font-bold md:text-2xl text-lg mb-3">
+       <h3 className="text-white font-bold md:text-2xl  md:mb-3 mb-1.5">
         140 MWp
        </h3>
        <p className="text-white text-sm md:text-base leading-relaxed">
@@ -100,7 +100,7 @@ export default function HeroSection() {
 
       {/* Card 2 */}
       <div className="bg-opacity-70  snap-center shrink-0 flex flex-col justify-center text-center max-w-40">
-       <h3 className="text-white font-bold md:text-2xl text-lg mb-3">
+       <h3 className="text-white font-bold md:text-2xl  md:mb-3 mb-1.5">
         100M kWh
        </h3>
        <p className="text-white text-sm md:text-base leading-relaxed">
@@ -113,7 +113,7 @@ export default function HeroSection() {
 
       {/* Card 3 */}
       <div className="bg-opacity-70  snap-center shrink-0 flex flex-col justify-center text-center max-w-40">
-       <h3 className="text-white font-bold md:text-2xl text-lg mb-3">
+       <h3 className="text-white font-bold md:text-2xl text-lg md:mb-3 mb-1.5">
         200K Mt
        </h3>
        <p className="text-white text-sm md:text-base leading-relaxed">

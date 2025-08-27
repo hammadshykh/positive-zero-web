@@ -93,7 +93,7 @@ export function RealTimeDataAnalyticsDashboardSection() {
      <div className="md:w-2/3 relative">
       <div
        ref={imageRef}
-       className="relative h-[565px] w-[1110px] ml-[-550px] rounded-lg overflow-hidden border-2 border-white/10 
+       className="relative h-[400px] w-[800px] md:h-[565px] md:w-[1110px] ml-[-550px] rounded-lg overflow-hidden border-2 border-white/10 
                          shadow-[0_0_400px_50px_rgba(168,85,247,0.3)] 
                          shadow-[#ED05CA21]
                          backdrop-blur-2xl

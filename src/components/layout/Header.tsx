@@ -77,43 +77,74 @@ const Header = () => {
  }, [isOpen]);
 
  // Sticky header show/hide after hero
- // Sticky Header animation on scroll
  useEffect(() => {
   const headerEl = headerRef.current;
   if (!headerEl) return;
 
-  gsap.set(headerEl, { y: -100, opacity: 0 }); // sticky header hidden
+  gsap.set(headerEl, { y: -100, opacity: 0 });
+
+  let lastScrollY = window.scrollY;
+  let isHeaderVisible = false;
 
   const showHeader = () => {
-   gsap.to(headerEl, {
-    y: 0,
-    opacity: 1,
-    duration: 0.6,
-    ease: "power3.out",
-   });
-  };
-
-  const hideHeader = () => {
-   gsap.to(headerEl, {
-    y: -100,
-    opacity: 0,
-    duration: 0.4,
-    ease: "power3.in",
-   });
-  };
-
-  const handleScroll = () => {
-   if (window.scrollY > window.innerHeight * 0.8) {
-    showHeader();
+   if (!isHeaderVisible) {
+    gsap.to(headerEl, {
+     y: 0,
+     opacity: 1,
+     duration: 0.3, // Faster show animation
+     ease: "power2.out",
+    });
     setShowHeader(true);
-   } else if (window.scrollY > 300) {
-    setShowHeader(false);
-    hideHeader();
+    isHeaderVisible = true;
    }
   };
 
-  window.addEventListener("scroll", handleScroll);
-  return () => window.removeEventListener("scroll", handleScroll);
+  const hideHeader = () => {
+   if (isHeaderVisible) {
+    gsap.to(headerEl, {
+     y: -100,
+     opacity: 0,
+     duration: 0.2, // Faster hide animation
+     ease: "power2.in",
+    });
+    setShowHeader(false);
+    isHeaderVisible = false;
+   }
+  };
+
+  const handleScroll = () => {
+   const currentScrollY = window.scrollY;
+
+   // Show when scrolled down past 500px
+   if (currentScrollY > 500) {
+    showHeader();
+   }
+   // Hide when scrolled up past 400px (with some hysteresis)
+   else if (currentScrollY < 400) {
+    hideHeader();
+   }
+
+   lastScrollY = currentScrollY;
+  };
+
+  // Use throttled scroll for better performance
+  let ticking = false;
+  const throttledScroll = () => {
+   if (!ticking) {
+    requestAnimationFrame(() => {
+     handleScroll();
+     ticking = false;
+    });
+    ticking = true;
+   }
+  };
+
+  window.addEventListener("scroll", throttledScroll, { passive: true });
+
+  // Initial check
+  handleScroll();
+
+  return () => window.removeEventListener("scroll", throttledScroll);
  }, []);
  return (
   <>
@@ -121,8 +152,11 @@ const Header = () => {
    <header className="relative z-40">
     <div className="max-w-7xl px-4 md:px-0 mx-auto flex items-center justify-between gap-6 md:gap-">
      {/* Desktop nav */}
-     <div className="relative -ms-4">
+     <div className="relative -ms-4 md:block hidden">
       <Image src="/positive-zero.svg" alt="Logo" width={200} height={200} />
+     </div>
+     <div className="relative -ms-4 md:hidden block">
+      <Image src="/positive-zero.svg" alt="Logo" width={120} height={100} />
      </div>
 
      <div className=" h-[72px] hidden md:flex items-center gap-10">
@@ -164,7 +198,7 @@ const Header = () => {
     }`}
    >
     <div className="md:max-w-5xl px-4 md:px-0 mx-auto flex items-center justify-between gap-6 md:gap-0 h-[72px]">
-     <div className="backdrop-blur-md bg-white/15 h-[72px]  shadow-2xl items-center flex md:max-w-5xl justify-between ps-10 pe-2 rounded-full w-full">
+     <div className="backdrop-blur-md bg-white/15 h-[72px]  shadow-2xl items-center flex md:max-w-5xl justify-between ps-10 pe-4 rounded-full w-full">
       <div className="relative -ms-2">
        <Image src="/positive-zero.svg" alt="Logo" width={120} height={120} />
       </div>
@@ -204,7 +238,6 @@ const Header = () => {
        )}
       </div>
      </div>
-
     </div>
    </header> */}
 

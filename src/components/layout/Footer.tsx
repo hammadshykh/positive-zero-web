@@ -5,8 +5,8 @@ import Image from "next/image";
 
 export function PositiveZeroFooter() {
  return (
-  <footer className="bg-background text-white py-14 px-6">
-   <div className="max-w-7xl mx-auto">
+  <footer className="bg-background text-white py-10 md:py-14 md:px-6">
+   <div className="max-w-7xl mx-auto md:px-0 px-4">
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-12">
      <div className="lg:col-span-4">
       <div className="flex items-center gap-2 mb-4">
@@ -112,7 +112,7 @@ export function PositiveZeroFooter() {
       <h3 className="font-semibold md:text-xl text-white mb-4">
        Subscribe to Newsletter
       </h3>
-      <div className="flex h-20">
+      <div className="flex md:h-20">
        <Input
         type="email"
         placeholder="Enter email address"

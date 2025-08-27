@@ -237,23 +237,23 @@ export function PortfolioAndNewsSection() {
    ref={sectionRef}
    className="w-full bg-black text-foreground overflow-hidden md:py-20"
   >
-   <div className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
+   <div className="max-w-7xl mx-auto px-4 py-10 md:py-16 sm:px-6 lg:px-8">
     <section className="flex flex-col items-center text-center">
      <h2
       ref={headingRef}
-      className="text-3xl font-heading md:text-4xl font-medium tracking-tight text-white"
+      className="md:text-3xl text-2xl font-heading lg:text-4xl font-medium tracking-tight text-white"
      >
       Our Portfolio Companies
      </h2>
-     <div ref={tabsRef} className="mt-8">
+     <div ref={tabsRef} className="mt-8  max-w-max ">
       <Tabs defaultValue="siraj">
        <TabsList className="h-auto gap-2 rounded-full bg-gradient-to-r from-[#5e00b58f] to-[#ff06cd9d] text-white p-[2px]">
-        <div className="rounded-full bg-[#1C1A1F] p-1.5">
+        <div className="rounded-full bg-[#1C1A1F] p-1.5 max-w-xs overflow-x-auto md:overflow-visible flex snap-x snap-mandatory scrollbar-hide">
          {portfolioCompanies.map((company) => (
           <TabsTrigger
            key={company.id}
            value={company.id}
-           className="rounded-full px-5 py-2 text-sm text-white font-bold data-[state=active]:bg-white data-[state=active]:text-black data-[state=active]:shadow-sm transition-all duration-300 transform hover:scale-105"
+           className="rounded-full px-3 md:px-5 py-1.5 md:py-2 snap-center shrink-0 font-medium text-sm text-white md:font-bold data-[state=active]:bg-white data-[state=active]:text-black data-[state=active]:shadow-sm transition-all duration-300 transform hover:scale-105"
           >
            {company.name}
           </TabsTrigger>
@@ -267,7 +267,7 @@ export function PortfolioAndNewsSection() {
     <section className="md:mt-60 mt-20">
      <h2
       ref={newsHeadingRef}
-      className="text-3xl font-raleway font-heading tracking-[0.5] md:text-4xl mb-10 text-white"
+      className="md:text-3xl text-2xl font-raleway font-heading tracking-[0.5] lg:text-4xl mb-5 md:mb-10 text-white"
      >
       We Are In The News
      </h2>

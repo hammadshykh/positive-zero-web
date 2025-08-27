@@ -74,12 +74,12 @@ export function ContactFormSection() {
 
  return (
   <div className="relative bg-black z-10 py-20 md:pb-40">
-   <div className="grid lg:grid-cols-2 gap-16 items-start max-w-7xl mx-auto">
+   <div className="grid lg:grid-cols-2 gap-10 md:gap-16 items-start max-w-7xl mx-auto md:px-0 px-4  ">
     <Image
      src={"/contact-from-image.jpg"}
      alt="contact bg-image"
      fill
-     className="w-[1440px] h-[800px] object-cover hidden lg:block -z-20  backdrop-blur-[2px] "
+     className="md:w-[1440px] md:h-[800px] object-cover block -z-20  backdrop-blur-[2px] "
     />
     <div className="bg-[#000000D9] absolute inset-0 -z-10"></div>
     <div className="space-y-6">

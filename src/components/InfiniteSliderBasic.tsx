@@ -3,7 +3,7 @@ import { InfiniteSlider } from "./ui/InfiniteSlider";
 
 export function InfiniteSliderBasic() {
  return (
-  <div className=" bg-black py-10">
+  <div className=" bg-black py-6 md:py-10 mb-10 md:mb-0">
    <div className=" flex max-w-7xl mx-auto md:px-0 px-4  flex-col items-start">
     <div className="md:w-[550px] py-4 ">
      <h2 className="text-primary uppercase leading-tight tracking-tighter">
@@ -20,40 +20,40 @@ export function InfiniteSliderBasic() {
       height={100}
       src="/brands/logo-1.svg"
       alt="Apple Music logo"
-      className="h-[60px] w-[160px] "
+      className="md:h-[60px] md:w-[160px] w-[140px] h-[50px]"
      />
      <Image
       src="/brands/logo-2.svg"
       alt="Apple Music logo"
-      className="h-[60px] w-[160px]"
+      className="md:h-[60px] md:w-[160px] w-[140px] h-[50px]"
       width={100}
       height={100}
      />
      <Image
       src="/brands/logo-3.svg"
       alt="Apple Music logo"
-      className="h-[60px] w-[160px]"
+      className="md:h-[60px] md:w-[160px] w-[140px] h-[50px]"
       width={100}
       height={100}
      />
      <Image
       src="/brands/logo-4.svg"
       alt="Apple Music logo"
-      className="h-[60px] w-[160px]"
+      className="md:h-[60px] md:w-[160px] w-[140px] h-[50px]"
       width={100}
       height={100}
      />
      <Image
       src="/brands/logo-5.svg"
       alt="Apple Music logo"
-      className="h-[60px] w-[160px]"
+      className="md:h-[60px] md:w-[160px] w-[140px] h-[50px]"
       width={100}
       height={100}
      />
      <Image
       src="/brands/logo-6.svg"
       alt="Apple Music logo"
-      className="h-[60px] w-[160px]"
+      className="md:h-[60px] md:w-[160px] w-[140px] h-[50px]"
       width={100}
       height={100}
      />

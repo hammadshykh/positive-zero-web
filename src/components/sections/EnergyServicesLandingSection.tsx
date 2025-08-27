@@ -132,9 +132,9 @@ export function EnergyServicesLandingSection() {
  };
 
  return (
-  <div ref={sectionRef} className="bg-black text-white py-10 md:py-20 px-6">
-   <div className="max-w-7xl mx-auto">
-    <div ref={headingRef} className="mb-12 font-raleway">
+  <div ref={sectionRef} className="bg-black text-white py-10 md:py-20  md:px-6">
+   <div className="max-w-7xl mx-auto md:px-0 px-4">
+    <div ref={headingRef} className="md:mb-12 mb-8 font-raleway">
      <h1 className="md:text-4xl text-2xl font-medium mb-2">
       Three Energy Services.
      </h1>
@@ -182,7 +182,7 @@ export function EnergyServicesLandingSection() {
     {/* Information Section */}
     <div
      ref={infoRef}
-     className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start bg-[#0F0F0F] p-10 rounded-2xl"
+     className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start bg-[#0F0F0F] p-5 md:p-10 rounded-2xl"
     >
      <div>
       <p className="text-base font-semibold mb-4 text-white">
