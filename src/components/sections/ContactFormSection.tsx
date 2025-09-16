@@ -18,6 +18,7 @@ import {
 import { PhoneInput, getPhoneData } from "../phone-input";
 import { toast } from "sonner";
 import Image from "next/image";
+import { event } from "@/lib/gtag";
 
 // Define Zod validation schema
 const formSchema = z.object({
@@ -196,6 +197,9 @@ export function ContactFormSection() {
       {/* Submit Button */}
       <Button
        type="submit"
+       onClick={() =>
+        event("contact_button_click", { label: "Send message button" })
+       }
        className="w-full rounded-md h-12 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-medium"
       >
        Send message
