@@ -5,6 +5,8 @@ import "./globals.css";
 import { PositiveZeroFooter } from "@/components/layout/Footer";
 import { ReactLenis } from "@/lib/lenis";
 import { ThemeProvider } from "@/components/theme-provider";
+import { GoogleAnalytics } from "@next/third-parties/google";
+import { AnalyticsProvider } from "../components/providers";
 // import LoadingScreen from "@/components/LoadingScreen";
 
 // Montserrat font setup
@@ -83,7 +85,10 @@ export default function RootLayout({
     >
      <ReactLenis options={{ duration: 1.5 }} root>
       {children}
-      {/* <LoadingScreen /> */}
+      {typeof window !== "undefined" && <AnalyticsProvider />}
+      {process.env.NEXT_PUBLIC_GA_ID && (
+       <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+      )}
      </ReactLenis>
      <NextTopLoader color="var(--primary)" height={3} showSpinner={false} />
      <PositiveZeroFooter />
